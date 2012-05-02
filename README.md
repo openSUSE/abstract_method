@@ -50,9 +50,9 @@ end
 When called, the abstract method will raise an `AbstractMethodCalled` exception with a helpful message:
 
 ```ruby
-AbstractClass.new.foo # => raises AbstractMethodCalled with the following message:
-                      #      Called unimplemented abstract method AbstractClass#foo
-                      #      (defined in class AbstractClass).
+AbstractClass.new.foo # raises AbstractMethodCalled with the following message:
+                      #   Called unimplemented abstract method AbstractClass#foo
+                      #   (defined in class AbstractClass).
 ```
 
 Abstract methods can be overridden as usual:
@@ -72,11 +72,9 @@ For more information, see the [API documentation](http://rubydoc.info/github/ope
 FAQ
 ---
 
-**Why define abstract methods? In a dynamic language like Ruby this isn't needed.**
+**Why define abstract methods? In a dynamic language like Ruby they aren't needed.**
 
-Mainly for documentation purposes.
-
-Imagine writing a plugin system where the plugins are classes derived from one superclass. For a plugin author it would be great to see what methods plugins need to implement directly from the superclass code. The abstract method definition is also a great place to put documentation describing what the method should do.
+Mainly for documentation purposes. The definitions allow subclass authors to easily see what they need to implement. They are also a great place to attach documentation.
 
 **Why create a new library? There is already the [abstract](http://rubygems.org/gems/abstract) gem.**
 
