@@ -74,6 +74,24 @@ describe Module do
           "Called unimplemented abstract method AbstractModuleIncluder#foo (defined in module AbstractModule)."
         )
       end
+
+      it "raises an exception with correct message when called with no arguments" do
+        lambda {
+          AbstractClassChild.new.foo
+        }.should raise_error(
+          AbstractMethodCalled,
+          "Called unimplemented abstract method AbstractClassChild#foo (defined in class AbstractClass)."
+        )
+      end
+
+      it "raises an exception with correct message when called with multiple arguments" do
+        lambda {
+          AbstractClassChild.new.foo(1, 2, 3)
+        }.should raise_error(
+          AbstractMethodCalled,
+          "Called unimplemented abstract method AbstractClassChild#foo (defined in class AbstractClass)."
+        )
+      end
     end
   end
 end

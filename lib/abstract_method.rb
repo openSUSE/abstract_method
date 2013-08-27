@@ -33,7 +33,7 @@ class Module
     definitor = self
 
     names.each do |name|
-      define_method name do
+      define_method name do |*args|
         raise AbstractMethodCalled,
               "Called unimplemented abstract method #{self.class}##{name} " +
               "(defined in #{definitor.class.name.downcase} #{definitor})."
